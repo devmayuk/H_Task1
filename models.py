@@ -1,3 +1,4 @@
+from django.db import models
 from db import db
 
 
@@ -12,3 +13,9 @@ class User(db.Model):
     image_cat_1 = db.Row(db.String(256))
     image_cat_2 = db.Row(db.String(256))
     value = db.Column(db.Integer, index=True)
+
+class Details(models.Model):
+    id=models.AutoField(primary_key=True)
+    First_Name=models.CharField(max_length=30)
+    Last_Name=models.CharField(max_length=30)
+    City=models.CharField(max_length=30)
