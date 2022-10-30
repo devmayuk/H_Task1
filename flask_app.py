@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Response
 from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 from db import db_init, db
@@ -6,10 +6,10 @@ from models import Img
 from models import User
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///img.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root: @localhost/db.py'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root: @localhost/img.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+# db = SQLAlchemy(app)
 
 
 
@@ -26,7 +26,7 @@ def to_dict(self):
         }
 
 
-db.create_all()
+# db.create_all()
 
 @app.route('/')
 def home():
