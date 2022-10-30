@@ -8,14 +8,16 @@ class Img(db.Model):
     name = db.Column(db.Text, nullable=False)
     mimetype = db.Column(db.Text, nullable=False)
 
-class User(db.Model):
-    label = db.Row(db.Integer, primary_key=True)
-    image_cat_1 = db.Row(db.String(256))
-    image_cat_2 = db.Row(db.String(256))
+
+class User(db.Table):
+    label = db.Column(db.String(64))
+    image_cat_1 = db.Column(db.String(256))
+    image_cat_2 = db.Column(db.String(256))
     value = db.Column(db.Integer, index=True)
 
-class Details(models.Model):
-    id=models.AutoField(primary_key=True)
-    First_Name=models.CharField(max_length=30)
-    Last_Name=models.CharField(max_length=30)
-    City=models.CharField(max_length=30)
+#
+# class Details(db.Model):
+#     label = models.AutoField(primary_key=True)
+#     image_cat_1 = models.CharField(max_length=30)
+#     image_cat_2 = models.CharField(max_length=30)
+#     value = models.CharField(max_length=30)
